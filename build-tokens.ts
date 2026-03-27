@@ -6,7 +6,7 @@ const sd = new StyleDictionary({
     css: {
       transformGroup: 'css',
       buildPath: 'src/styles/',
-      transforms: ['typography'],
+      transforms: ['typography', 'css/variables'],
       files: [
         {
           destination: 'tokens.css',
@@ -25,11 +25,24 @@ sd.registerTransform({
     },
 
     transform: (token) => {
-        console.log({ token })
         const prefixMatches = token.name.match(/^typography-text-preset-(\d+)/)
         const id = prefixMatches?.[1]
         return `typography-${id}-${token.attributes?.item}`;
     },
 })
 
+sd.registerTransform({
+    name: 'css/variables',
+    type: 'name',
+    filter: (token) => {
+        return (
+            token.type === 'color' ||
+            (token.type === 'dimension' &&
+                /^variable-collection-spacing-/.test(token.name))
+        );
+    },
+    transform: (token) => {
+        return token.name.replace(/^variable-collection-/, '');
+    },
+})
 await sd.buildAllPlatforms();
