@@ -1,0 +1,68 @@
+.stepItem {
+    display: block;
+}
+
+.stepNumber {
+    font-family: var(--typography-5-fontFamily);
+    display: inline-flex;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    border: 1px solid var(--colors-white);
+    font-size: var(--typography-4-fontSize);
+    line-height: var(--typography-4-lineHeight);
+    font-weight: var(--typography-4-fontWeight);
+    color: var(--colors-white);
+    justify-content: center;
+    align-items: center;
+}
+
+.stepLabel {
+    display: none;
+    font-family: var(--typography-5-fontFamily);
+    font-size: var(--typography-5-fontSize);
+    line-height: var(--typography-5-lineHeight);
+    font-weight: var(--typography-5-fontWeight);
+    text-transform: uppercase;
+    color: var(--colors-blue-300);
+}
+
+.stepLabelText {
+    display: none;
+    font-family: var(--typography-5-fontFamily);
+    font-size: var(--typography-5-fontSize);
+    line-height: var(--typography-5-lineHeight);
+    font-weight: 600;
+    color: var(--colors-white);
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .stepItem {
+        display: grid;
+        grid-template-columns: 33px 1fr;
+        grid-template-rows: calc(33px / 2) 1fr;
+        column-gap: var(--spacing-200);
+    }
+
+    .stepNumber {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .stepLabel {
+        display:flex;
+        align-items: start;
+
+    }
+    .stepLabelText {
+        display:flex;
+        align-items: end;
+    }
+}
+
+.active.stepNumber {
+    background: var(--colors-blue-200);
+    border-color: var(--colors-blue-200);
+    color: var(--colors-blue-950);
+}

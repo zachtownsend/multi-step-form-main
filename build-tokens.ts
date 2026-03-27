@@ -1,12 +1,30 @@
 import StyleDictionary from 'style-dictionary';
 
+/** Same as built-in `css` group, but `size/px` instead of `size/rem` so Figma numeric font sizes become `32px`, not `32rem`. */
+const cssTransformsPx = [
+  'attribute/cti',
+  'name/kebab',
+  'time/seconds',
+  'html/icon',
+  'size/px',
+  'color/css',
+  'asset/url',
+  'fontFamily/css',
+  'cubicBezier/css',
+  'strokeStyle/css/shorthand',
+  'border/css/shorthand',
+  'typography/css/shorthand',
+  'transition/css/shorthand',
+  'shadow/css/shorthand',
+] as const;
+
 const sd = new StyleDictionary({
   source: ['design-tokens.tokens.json'],
   platforms: {
     css: {
-      transformGroup: 'css',
       buildPath: 'src/styles/',
-      transforms: ['typography', 'css/variables'],
+      transforms: [...cssTransformsPx, 'typography', 'css/variables'],
+      
       files: [
         {
           destination: 'tokens.css',
