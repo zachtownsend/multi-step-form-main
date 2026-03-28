@@ -3,3 +3,7 @@
 html {
   font-family: "Ubuntu", sans-serif;
 }
+
+body, html, #storybook-root {
+  height: 100%;
+}

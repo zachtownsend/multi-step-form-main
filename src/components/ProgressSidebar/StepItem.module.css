@@ -23,6 +23,7 @@
     font-size: var(--typography-5-fontSize);
     line-height: var(--typography-5-lineHeight);
     font-weight: var(--typography-5-fontWeight);
+    font-stretch: var(--typography-5-fontStretch);
     text-transform: uppercase;
     color: var(--colors-blue-300);
 }
@@ -32,6 +33,7 @@
     font-family: var(--typography-5-fontFamily);
     font-size: var(--typography-5-fontSize);
     line-height: var(--typography-5-lineHeight);
+    font-stretch: var(--typography-5-fontStretch);
     font-weight: 600;
     color: var(--colors-white);
     text-transform: uppercase;
@@ -50,14 +52,9 @@
         grid-row: 1 / span 2;
     }
 
-    .stepLabel {
+    .stepLabel, .stepLabelText {
         display:flex;
-        align-items: start;
-
-    }
-    .stepLabelText {
-        display:flex;
-        align-items: end;
+        align-items: center;
     }
 }
 
