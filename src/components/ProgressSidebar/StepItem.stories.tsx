@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { MINIMAL_VIEWPORTS } from 'storybook/viewport'
 
 import StepItem from './StepItem'
-import '../../styles/tokens.css'
 
 const purpleCanvas = {
   backgroundColor: 'var(--colors-purple-600)',
@@ -17,9 +15,6 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    viewport: {
-      options: MINIMAL_VIEWPORTS,
-    },
   },
   decorators: [
     (Story) => (
@@ -69,7 +64,7 @@ export const DesktopActive: Story = {
 
 export const Mobile: Story = {
   globals: {
-    viewport: { value: 'mobile1' },
+    viewport: { value: 'mobile' },
   },
   args: {
     isCurrent: false,
